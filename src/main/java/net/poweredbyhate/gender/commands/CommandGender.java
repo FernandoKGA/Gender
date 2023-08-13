@@ -6,6 +6,7 @@ import co.aikar.commands.annotation.CommandPermission;
 import co.aikar.commands.annotation.HelpCommand;
 import co.aikar.commands.annotation.Optional;
 import co.aikar.commands.annotation.Subcommand;
+import co.aikar.commands.bukkit.contexts.OnlinePlayer;
 import de.themoep.inventorygui.GuiElementGroup;
 import de.themoep.inventorygui.GuiPageElement;
 import de.themoep.inventorygui.InventoryGui;
@@ -99,12 +100,12 @@ public class CommandGender extends BaseCommand {
     }
 
     @Subcommand("check|show")
-    public void onCheck(Player sender, @Optional Player target) {
-        String gender = plugin.goMental().getSnowflake(target).getGender().getName();
+    public void onCheck(Player sender, OnlinePlayer target) {
+        String gender = plugin.goMental().getSnowflake(target.getPlayer()).getGender().getName();
         if (gender.isEmpty()) {
-            sender.sendMessage(m("notIdentified", target.getName(), gender));
+            sender.sendMessage(m("notIdentified", target.getPlayer().getName(), gender));
         } else {
-            sender.sendMessage(m("checkGender", target.getName(), gender));
+            sender.sendMessage(m("checkGender", target.getPlayer().getName(), gender));
         }
     }
 

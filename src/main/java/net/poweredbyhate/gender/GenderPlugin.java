@@ -13,6 +13,7 @@ import net.poweredbyhate.gender.utilities.DatabaseManager;
 import net.poweredbyhate.gender.utilities.Messenger;
 import net.poweredbyhate.gender.utilities.Settings;
 import org.bstats.bukkit.Metrics;
+import org.bstats.charts.AdvancedPie;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -48,7 +49,7 @@ public class GenderPlugin extends JavaPlugin {
         instance = this;
         makeDatabase();
         mentalIllness = new MentalIllness(this, asylum);
-        metrics = new Metrics(this);
+        metrics = new Metrics(this, 1322);
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             new PlaceholderListener(this).register();
         }
@@ -113,7 +114,7 @@ public class GenderPlugin extends JavaPlugin {
 
     public void loadCustomChart() {
         getLogger().log(Level.INFO,"Loading: Custom Charts");
-        metrics.addCustomChart(new Metrics.AdvancedPie("le_popular_genders", () -> {
+        metrics.addCustomChart(new AdvancedPie("le_popular_genders", () -> {
             Map<String, Integer> genderCount = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
             for (String s : getConfig().getKeys(false)) {
                 String gender = getConfig().getString(s);

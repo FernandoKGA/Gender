@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.poweredbyhate</groupId>
     <artifactId>Gender</artifactId>
-    <version>1.6.2</version>
+    <version>1.6.3-alpha.1</version>
     <build>
         <defaultGoal>clean package</defaultGoal>
         <finalName>${project.name}</finalName>
@@ -66,10 +66,6 @@
             <url>http://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
         <repository>
-            <id>bstats-repo</id>
-            <url>http://repo.bstats.org/content/repositories/releases/</url>
-        </repository>
-        <repository>
             <id>inventive-repo</id>
             <url>http://repo.inventivetalent.org/content/groups/public/</url>
         </repository>
@@ -98,7 +94,7 @@
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
-            <version>1.2</version>
+            <version>2.2.1</version>
         </dependency>
         <dependency>
             <groupId>org.inventivetalent.update</groupId>
